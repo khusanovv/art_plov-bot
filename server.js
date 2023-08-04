@@ -4,3 +4,8 @@ const API = "nsandausdnu"
 
 console.log(bot);
 console.log(API);
+
+
+
+
+ 
