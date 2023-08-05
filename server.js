@@ -4,4 +4,4 @@ const API = ""
 
 const bot = new TelegramBot(API, {polling:true})
 
-console.log(bot);
+console.log(bot)
