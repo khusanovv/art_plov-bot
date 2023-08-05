@@ -1,7 +1,7 @@
 import { Markup, Telegraf } from 'telegraf';
 
 
-const bot = new Telegraf('6625099196:AAFm_KHMCQUyP0M-Bytt7YUNHdbDaS1Fmvk');
+const bot = new Telegraf('1665840542:AAHAIoi8GXucpLyjlF8bwmTcrWJEd-RmS2g');
 
 let bot_langue = false;
 let user_name = false;
@@ -27,30 +27,50 @@ bot.on('contact', async(ctx) =>{
         }
 })
 bot.on('message',(ctx) =>{
-if (ctx.message.text ==`O’zbekcha`) {
-        bot_langue = false
+
+    if (ctx.message.text == `O’zbekcha`){
+        bot_langue == false
         ctx.reply(
-`📞 Ro'yxatdan o'tish uchun telefon raqamingizni kiriting. 
+            `Iltimos` || "", {   
+                reply_markup: {
+                            keyboard: [
+                                [{text: "🍴 Menu"}],
+                                [{text: "✍ Fikr yozish"},{text: "Mening buyurtmalarim"}],
+                                
+            
+                            ],
+                            resize_keyboard: true,
+                            remove_keyboard: true,
+                            one_time_keyboard: true,
+                        },        
+            }         )
+    }
+// if (ctx.message.text ==`O’zbekcha`) {
+//         bot_langue = false
+//         ctx.reply(
+// `📞 Ro'yxatdan o'tish uchun telefon raqamingizni kiriting. 
 
-Raqamni +998********* shaklida yuboring.`,
-{
-    ...Markup.keyboard([
-      Markup.button.contactRequest(" ☎️ Send Contact"),
-    ]).resize(),
-  })
-}
-else if (ctx.message.text ==`Русский`) {
-    bot_langue = true
-    ctx.reply(
-`Введите свой номер телефона
+// Raqamni +998********* shaklida yuboring.`,
+// {
+//     ...Markup.keyboard([
+//       Markup.button.contactRequest(" ☎️ Send Contact"),
 
-Отправить номер с помощью кнопки ОТПРАВИТЬ КОНТАКТ`,
-    {
-      ...Markup.keyboard([
-        Markup.button.contactRequest(" ☎️ Send Contact"),
-      ]).resize(),
-    })
-}
+
+//     ]).resize(),
+//   })
+// }
+// else if (ctx.message.text ==`Русский`) {
+//     bot_langue = true
+//     ctx.reply(
+// `Введите свой номер телефона
+
+// Отправить номер с помощью кнопки ОТПРАВИТЬ КОНТАКТ`,
+//     {
+//       ...Markup.keyboard([
+//         Markup.button.contactRequest(" ☎️ Send Contact"),
+//       ]).resize(),
+//     })
+// }
 
 })
 
