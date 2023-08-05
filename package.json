@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Art Plov",
   "main": "index.js",
-  "types": "module",
+  "type": "module",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
