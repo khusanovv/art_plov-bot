@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "description": "Art Plov",
   "main": "index.js",
-  "types": "module",
+  "type": "module",
   "scripts": {
-    "dev": "nodemon"
+    "start": "node server.js",
+    "dev":"nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "node-telegram-bot-api": "^0.61.0",
+    "nodemon": "^3.0.1",
     "telegraf": "^4.12.2"
   }
 }
