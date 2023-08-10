@@ -1,7 +1,7 @@
 import { Markup, Telegraf } from 'telegraf';
 
 
-const bot = new Telegraf('1665840542:AAHAIoi8GXucpLyjlF8bwmTcrWJEd-RmS2g');
+const bot = new Telegraf('6625099196:AAFm_KHMCQUyP0M-Bytt7YUNHdbDaS1Fmvk');
 
 let bot_langue = false;
 let user_name = false;
@@ -9,21 +9,16 @@ let user_name = false;
 
 let for_idea = false
 
-bot.start( ctx => {
-ctx.reply(
+bot.start(async ctx => {
+await  ctx.reply(
 `Assalomu aleykum! Botimizga xush kelibsiz!                              
-Keling, avvaliga xizmat ko’rsatish tilini tanlab olaylik.`, Markup.keyboard(
+Keling, avvaliga xizmat ko’rsatish tilini tanlab olaylik.`, 
+Markup.keyboard(
         [
             ['O’zbekcha', 'Русский'],
         ]
     ).resize())
 })
-
-
-bot.hears('✍ Fikr yozish', (ctx) => ctx.reply('Hey there'));
-
-
-
 bot.on('contact', async(ctx) =>{
         if (bot_langue == false ) {
             console.log(ctx.message);
@@ -35,12 +30,13 @@ bot.on('contact', async(ctx) =>{
             user_name = true
         }
 })
-bot.on('message',(ctx) =>{
 
-    if (ctx.message.text == `O’zbekcha`){
+bot.on('message', async (ctx) =>{
+
+    if ( ctx.message.text == `O’zbekcha`){
         bot_langue == false
         ctx.reply(
-            `Iltimos shulardan birini tanlang` || "", {   
+            `Iltimos` || "", {   
                 reply_markup: {
                             keyboard: [
                                 [{text: "🍴 Menu"}],
@@ -48,9 +44,7 @@ bot.on('message',(ctx) =>{
                                 
             
                             ],
-                            resize_keyboard: true,
-                            remove_keyboard: true,
-                            one_time_keyboard: true,
+                            resize_keyboard: true
                         },        
             }         )
        
@@ -82,35 +76,20 @@ bot.on('message',(ctx) =>{
                         },        
             }         )
     }
-// if (ctx.message.text ==`O’zbekcha`) {
-//         bot_langue = false
-//         ctx.reply(
-// `📞 Ro'yxatdan o'tish uchun telefon raqamingizni kiriting. 
 
-// Raqamni +998********* shaklida yuboring.`,
-// {
-//     ...Markup.keyboard([
-//       Markup.button.contactRequest(" ☎️ Send Contact"),
-
-
-//     ]).resize(),
-//   })
-// }
-// else if (ctx.message.text ==`Русский`) {
-//     bot_langue = true
-//     ctx.reply(
-// `Введите свой номер телефона
-
-// Отправить номер с помощью кнопки ОТПРАВИТЬ КОНТАКТ`,
-//     {
-//       ...Markup.keyboard([
-//         Markup.button.contactRequest(" ☎️ Send Contact"),
-//       ]).resize(),
-//     })
-// }
-
+    else if ( ctx.message.text = "🍴 Menu") {
+     await ctx.reply(`yetkazib berish manzilini tanlang`,{
+        reply_markup: {
+          keyboard: [
+              [{text: "🗺 Mening manzillarim"}],
+              [{text: "📍 Geolokatsiyani yuboring ",request_location:true},{text: "⬅️ Ortga",}],
+              
+          ],
+          resize_keyboard: true
+      },           
+      })
+    }
+    
 })
 
-
-
-bot.launch(); 
+bot.launch();
