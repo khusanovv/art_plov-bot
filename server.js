@@ -57,3 +57,6 @@ bot.on('message', async (ctx) =>{
 bot.launch();
 
 console.log("ashauhauhd");
+
+let ayub = "1234";
+console.log(ayub);
