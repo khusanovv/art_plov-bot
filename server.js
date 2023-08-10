@@ -56,4 +56,4 @@ bot.on('message', async (ctx) =>{
 // bot.on("message",())
 bot.launch();
 
-console.log(bot);
+console.log("ashauhauhd");
